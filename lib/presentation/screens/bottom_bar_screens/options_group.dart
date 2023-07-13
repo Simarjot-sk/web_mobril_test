@@ -35,7 +35,7 @@ class _OptionsGroupState extends State<OptionsGroup>
     ).animate(
       CurvedAnimation(
         parent: widget.controller,
-        curve: Curves.bounceOut,
+        curve: Curves.elasticOut,
       ),
     );
   }
@@ -75,7 +75,7 @@ class _OptionsGroupState extends State<OptionsGroup>
           decoration: BoxDecoration(
               color: kPrimaryColor,
               borderRadius: BorderRadius.circular(100),
-              border: Border.all(color: Colors.white, width: 2)),
+              border: Border.all(color: Colors.white, width: 4)),
           child: Icon(iconData),
         ),
         Text(

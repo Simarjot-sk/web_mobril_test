@@ -30,7 +30,7 @@ class _SecondScreenState extends State<SecondScreen>
     ).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Curves.bounceOut,
+        curve: Curves.elasticOut,
       ),
     );
   }
