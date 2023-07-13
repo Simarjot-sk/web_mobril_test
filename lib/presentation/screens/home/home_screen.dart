@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_mobril_test/data/repo/auth_repo.dart';
+import 'package:web_mobril_test/presentation/screens/home/widgets/home_bottom_bar.dart';
 import 'package:web_mobril_test/presentation/screens/login/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,15 +11,23 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          child: const Text("Logout"),
-          onPressed: () {
-            AuthRepo.signOut();
-            Navigator.pushReplacementNamed(context, LoginScreen.route);
-          },
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: HomeBottomBar(
+          onItemSelected: (index) {},
         ),
       ),
+      body: Center(child: _buildSignOutButton(context)),
+    );
+  }
+
+  Widget _buildSignOutButton(BuildContext context) {
+    return ElevatedButton(
+      child: const Text("SignOut"),
+      onPressed: () {
+        AuthRepo.signOut();
+        Navigator.pushReplacementNamed(context, LoginScreen.route);
+      },
     );
   }
 }
