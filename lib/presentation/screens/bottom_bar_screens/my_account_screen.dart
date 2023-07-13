@@ -18,19 +18,21 @@ class MyAccountScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildProfileImage(),
-            const AccountListItem(title: 'User Profile'),
-            const AccountListItem(title: 'Change Password'),
-            const AccountListItem(title: 'My Goals'),
-            const AccountListItem(title: 'Subscription Plans'),
-            const AccountListItem(title: 'Terms and Conditions'),
-            const AccountListItem(title: 'Help Center'),
-            const AccountListItem(title: 'Logout'),
-            const AccountListItem(title: 'Delete Account'),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _buildProfileImage(),
+              const AccountListItem(title: 'User Profile'),
+              const AccountListItem(title: 'Change Password'),
+              const AccountListItem(title: 'My Goals'),
+              const AccountListItem(title: 'Subscription Plans'),
+              const AccountListItem(title: 'Terms and Conditions'),
+              const AccountListItem(title: 'Help Center'),
+              const AccountListItem(title: 'Logout'),
+              const AccountListItem(title: 'Delete Account'),
+            ],
+          ),
         ),
       ),
     );
