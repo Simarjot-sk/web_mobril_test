@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_mobril_test/data/repo/auth_repo.dart';
+import 'package:web_mobril_test/presentation/screens/bottom_bar_screens/my_account_screen.dart';
 import 'package:web_mobril_test/presentation/screens/bottom_bar_screens/options_screen.dart';
 import 'package:web_mobril_test/presentation/screens/home/widgets/home_bottom_bar.dart';
 import 'package:web_mobril_test/presentation/screens/login/login_screen.dart';
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           if (_bottomBarIndex == 1) const SecondScreen(),
-
+          if (_bottomBarIndex == 3) const MyAccountScreen(),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(

@@ -14,6 +14,8 @@ class Prefs {
 
   static final isLoggedIn = SharedPrefValue<bool>('is_logged_in', prefs);
   static final userEmail = SharedPrefValue<String>('user_email', prefs);
+  static final profileUrl = SharedPrefValue<String>('profile_image_url', prefs);
+  static final userName = SharedPrefValue<String>('user_name', prefs);
 
   static void clear() {
     prefs.clear();
