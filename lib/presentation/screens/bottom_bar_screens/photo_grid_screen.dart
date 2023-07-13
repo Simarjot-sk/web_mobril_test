@@ -72,10 +72,21 @@ class _PhotoGridScreenState extends State<PhotoGridScreen> {
 
   Widget _buildErrorMessage(String errorMessage) {
     return Center(
-      child: Text(
-        errorMessage,
-        style: const TextStyle(fontSize: 40),
-        textAlign: TextAlign.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            errorMessage,
+            style: const TextStyle(fontSize: 40),
+            textAlign: TextAlign.center,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context.read<PhotosStateHolder>().loadPhotos();
+            },
+            child: const Text("Retry"),
+          )
+        ],
       ),
     );
   }

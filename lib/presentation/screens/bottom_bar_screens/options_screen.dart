@@ -18,7 +18,7 @@ class _SecondScreenState extends State<SecondScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 2000),
       vsync: this,
     );
 
