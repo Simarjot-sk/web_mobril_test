@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_mobril_test/presentation/theme/colors.dart';
+import 'package:web_mobril_test/utils/inner_shadow.dart';
 
 class HomeBottomBar extends StatefulWidget {
   const HomeBottomBar({super.key, required this.onItemSelected});
@@ -20,11 +21,10 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
       child: buildShadowContainer(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.only(top: 3.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icons.home_rounded,
                 Icons.photo_library_rounded,
@@ -52,25 +52,14 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
 }
 
 Widget buildShadowContainer({required Widget child}) {
-  var radius = BorderRadius.circular(50);
-  return Container(
-    decoration: BoxDecoration(
-      border: Border.all(color: kPrimaryColor, width: 2),
-      color: kPrimaryColor,
-      borderRadius: radius,
-    ),
-    padding: const EdgeInsets.all(10),
+  return InnerShadow(
+    blur: 12,
+    color: kPrimaryColor,
+    offset: const Offset(5, 5),
     child: Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(50)),
         color: kScreenBackgroundColor,
-        borderRadius: radius,
-        boxShadow: const [
-          BoxShadow(
-            color: kScreenBackgroundColor,
-            blurRadius: 10,
-            spreadRadius: 10,
-          )
-        ],
       ),
       child: child,
     ),
@@ -97,9 +86,10 @@ class BottomBarItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              height: isSelected ? 4 : 0,
+              height: isSelected ? 3 : 0,
               width: 45,
               decoration: BoxDecoration(
                   color: kPrimaryColor, borderRadius: BorderRadius.circular(5)),

@@ -3,6 +3,7 @@ import 'package:web_mobril_test/data/repo/auth_repo.dart';
 import 'package:web_mobril_test/presentation/screens/bottom_bar_screens/options_screen.dart';
 import 'package:web_mobril_test/presentation/screens/home/widgets/home_bottom_bar.dart';
 import 'package:web_mobril_test/presentation/screens/login/login_screen.dart';
+import 'package:web_mobril_test/presentation/theme/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   static const route = "home_screen_route";
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kScreenBackgroundColor,
       body: Stack(
         children: [
           if (_bottomBarIndex == 1) const SecondScreen(),
