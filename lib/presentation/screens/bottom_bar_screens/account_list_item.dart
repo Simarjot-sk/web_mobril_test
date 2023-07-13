@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:web_mobril_test/presentation/theme/colors.dart';
 
 class AccountListItem extends StatelessWidget {
-  const AccountListItem({super.key, required this.title, this.onClick});
+  const AccountListItem(
+      {super.key, required this.title, this.onClick, required this.iconData});
 
   final String title;
   final VoidCallback? onClick;
+  final IconData iconData;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,13 @@ class AccountListItem extends StatelessWidget {
                 offset: const Offset(0, 5))
           ],
         ),
-        child: Text(title),
+        child: Row(
+          children: [
+            Icon(iconData),
+            const SizedBox(width: 10),
+            Text(title)
+          ],
+        ),
       ),
     );
   }

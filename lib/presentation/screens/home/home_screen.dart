@@ -51,14 +51,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  Widget _buildSignOutButton(BuildContext context) {
-    return ElevatedButton(
-      child: const Text("SignOut"),
-      onPressed: () {
-        AuthRepo.signOut();
-        Navigator.pushReplacementNamed(context, LoginScreen.route);
-      },
-    );
-  }
 }
