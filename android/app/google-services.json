@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "331218326304",
+    "project_id": "webmobriltest-72218",
+    "storage_bucket": "webmobriltest-72218.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331218326304:android:ad42463b3ecf90eb2ebd45",
+        "android_client_info": {
+          "package_name": "com.example.web_mobril_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331218326304-nv3vel9chbett711n8t25tvl48rlej6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK3QasIe9joKn8-COoTHN7PfkP9FEAwjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331218326304-nv3vel9chbett711n8t25tvl48rlej6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
