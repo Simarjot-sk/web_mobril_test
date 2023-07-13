@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           if (_bottomBarIndex == 1) const SecondScreen(),
+
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(

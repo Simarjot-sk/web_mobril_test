@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_mobril_test/presentation/screens/home/widgets/home_bottom_bar.dart';
 import 'package:web_mobril_test/presentation/theme/colors.dart';
 
 class OptionsGroup extends StatefulWidget {
@@ -76,7 +77,12 @@ class _OptionsGroupState extends State<OptionsGroup>
               color: kPrimaryColor,
               borderRadius: BorderRadius.circular(100),
               border: Border.all(color: Colors.white, width: 4)),
-          child: Icon(iconData),
+          child: buildShadowContainer(
+              child: Icon(
+                size: 35,
+            iconData,
+            color: kPrimaryColor,
+          )),
         ),
         Text(
           label,

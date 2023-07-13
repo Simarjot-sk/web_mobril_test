@@ -15,64 +15,66 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildShadowContainer(
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 3.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icons.home_rounded,
-              Icons.photo_library_rounded,
-              Icons.stacked_bar_chart_rounded,
-              Icons.person_rounded
-            ].asMap().entries.map((e) {
-              final index = e.key;
-              final iconData = e.value;
-              return BottomBarItem(
-                  isSelected: index == selectedIndex,
-                  iconData: iconData,
-                  onTap: () {
-                    setState(() {
-                      selectedIndex = index;
+    return SizedBox(
+      height: 70,
+      child: buildShadowContainer(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 3.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icons.home_rounded,
+                Icons.photo_library_rounded,
+                Icons.stacked_bar_chart_rounded,
+                Icons.person_rounded
+              ].asMap().entries.map((e) {
+                final index = e.key;
+                final iconData = e.value;
+                return BottomBarItem(
+                    isSelected: index == selectedIndex,
+                    iconData: iconData,
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                      widget.onItemSelected(index);
                     });
-                    widget.onItemSelected(index);
-                  });
-            }).toList(),
+              }).toList(),
+            ),
           ),
         ),
       ),
     );
   }
+}
 
-  Widget _buildShadowContainer({required Widget child}) {
-    var radius = BorderRadius.circular(50);
-    return Container(
-      height: 70,
+Widget buildShadowContainer({required Widget child}) {
+  var radius = BorderRadius.circular(50);
+  return Container(
+    decoration: BoxDecoration(
+      border: Border.all(color: kPrimaryColor, width: 2),
+      color: kPrimaryColor,
+      borderRadius: radius,
+    ),
+    padding: const EdgeInsets.all(10),
+    child: Container(
       decoration: BoxDecoration(
-        border: Border.all(color: kPrimaryColor, width: 2),
-        color: kPrimaryColor,
+        color: kScreenBackgroundColor,
         borderRadius: radius,
+        boxShadow: const [
+          BoxShadow(
+            color: kScreenBackgroundColor,
+            blurRadius: 10,
+            spreadRadius: 10,
+          )
+        ],
       ),
-      padding: const EdgeInsets.all(10),
-      child: Container(
-        decoration: BoxDecoration(
-          color: kScreenBackgroundColor,
-          borderRadius: radius,
-          boxShadow: const [
-            BoxShadow(
-              color: kScreenBackgroundColor,
-              blurRadius: 15,
-              spreadRadius: 15,
-            )
-          ],
-        ),
-        child: child,
-      ),
-    );
-  }
+      child: child,
+    ),
+  );
 }
 
 class BottomBarItem extends StatelessWidget {
