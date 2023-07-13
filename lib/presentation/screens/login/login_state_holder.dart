@@ -1,27 +1,34 @@
 import 'package:flutter/cupertino.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:web_mobril_test/data/repo/auth_repo.dart';
-import 'package:web_mobril_test/ui_state.dart' as state;
+import 'package:web_mobril_test/ui_state.dart';
 import 'dart:developer' as dev;
 
 class LoginStateHolder extends ChangeNotifier {
-  state.UiState? loginState;
+  UiState<GoogleSignInAccount>? loginState;
 
-  void loginWithGoogle() {
+  void loginWithGoogle() async {
     try {
-      _updateState(const state.Loading());
-      AuthRepo.loginWithGoogle();
-      _updateState(const state.Success(""));
+      _updateState(const Loading());
+      final res = await AuthRepo.loginWithGoogle();
+      if (res == null) {
+        _updateState(const Failure("Login Aborted"));
+      } else {
+        _updateState(Success(res));
+      }
     } catch (th, stack) {
       dev.log(
         "error while logging in with google",
         stackTrace: stack,
         error: th,
       );
-      _updateState(const state.Failure("Something Went Wrong"));
+      _updateState(
+        const Failure("Something Went Wrong"),
+      );
     }
   }
 
-  void _updateState(state.UiState newState) {
+  void _updateState(UiState<GoogleSignInAccount> newState) {
     loginState = newState;
     notifyListeners();
   }

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:web_mobril_test/data/shared_pref_helper.dart';
+import 'package:web_mobril_test/data/repo/auth_repo.dart';
 import 'my_app.dart';
 
-void main() {
-  Prefs.init();
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final isSignedIn = await AuthRepo.isSignedId();
+  runApp(
+    MyApp(
+      isSignedIn: isSignedIn,
+    ),
+  );
 }
